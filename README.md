@@ -6,9 +6,10 @@ Uses Tensorflow Object Detection API to retrain SSD MobileNet v2 to localize tra
 2. Labeled a series of distinct images using LabelMe.
 3. Through the number of json files, converted them into individual csv files. (There might be an easier way to do this, however I certainly had no such luck with python scripts)
 4. Combined each csv file into a single csv file.
-5. Used an online csv editor to match the format that the csv_to_tfrecord python script requires. Namely adding the image name, and resolution of the image (Same as resolution of the video)
+5. Used an online csv editor to match the format that the csv_to_tfrecord python script requires(Have added my own for reference). Namely adding the image name, and resolution of the image (Same as resolution of the video)
 6. Divided dataset into training and testing.
 7. Created a seperate tfrecord file for both training and testing.
+8. Created a labelmap.pbtxt file. I have included my own as reference. As I am only trying to detect cones, I only have one class.
 8. Chose an appropriate model to retrain (SSD MobileNet v2 trained on COCO dataset)
 9. Downloaded the CKPT for the respective model.
 10. Edit the config file including required paths, and a few training parameters. Adjust this according to your needs.
@@ -19,6 +20,6 @@ Uses Tensorflow Object Detection API to retrain SSD MobileNet v2 to localize tra
 15. Smile at the results!
 
 # Notes
-Switching between models is incredibly easy, as just replace the model name by the model you wish to add. Make sure to edit the config file as required.
-GPU training is advised.
-Do not skimp on training data. This approach requires an abundance of training data.
+1. Switching between models is incredibly easy, as just replace the model name by the model you wish to add. Make sure to edit the config file as required.
+2. GPU training is advised.
+3. Do not skimp on training data. This approach requires an abundance of training data.
